@@ -1,0 +1,3 @@
+# Put real image/video evidence files here (e.g. fake-hands.jpg, deepfake.mp4).
+# Reference them from ../src/data/exhibits.js using contentType 'image' or 'video'
+# and content: 'assets/your-file.jpg'.

@@ -1,0 +1,300 @@
+/* ============================================================
+    Edit the File Instructions(Hare lee didiak :))
+
+   Every question is one block inside the list below.
+   To add a question, copy an existing block and change the parts.
+
+   Here is what each part means:
+
+     category    What kind it is: 'text', 'image', or 'video'.
+     tag         The small label shown on the evidence card.
+     contentType How to show it:
+                   'text'  -> content is the words to show
+                   'svg'   -> content is a drawing name from assets.js
+                   'image' -> content is a picture file (e.g. assets/photo.jpg)
+                   'video' -> content is a video file (e.g. assets/clip.mp4)
+     content     The actual thing to show (see contentType above).
+     isAI        true  = made by AI
+                 false = made by a human
+     explanation The hint shown AFTER the player answers.
+     levels      Which cases this question can show up in, e.g. [1, 2].
+                 Leave it out to let it appear in every case.
+
+   NOTE: The image and video questions below use simple placeholder
+   drawings, not real photos or clips. To use a real one, put your
+   file in the /assets/ folder and change the question like this:
+     contentType: 'image',   content: 'assets/your-photo.jpg',
+     contentType: 'video',   content: 'assets/your-clip.mp4',
+
+   Which case number to use (rough guide):
+     1 = easy    2 = mixed    3 = hard    4 = detective mode
+   ============================================================ */
+
+export const EXHIBITS = [
+
+  /* =========================================================
+     TEXT QUESTIONS
+     ========================================================= */
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `Okay so I tried to make my grandma's soto ayam last night and completely burned the shallots on the first try lol. Had to start over, my kitchen still smells like it. Second batch turned out decent tho, not as good as hers obviously but my roommate said it was fine so I'll take it.`,
+    isAI: false,
+    explanation: "Human writing. Notice the messy, specific detail (burned shallots, a roommate's casual opinion), imperfect grammar (\"tho\"), and a personal memory that's hard for a model to fabricate convincingly.",
+    levels: [1, 2]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `Our premium ceramic knife set combines cutting-edge materials with timeless design. Engineered for precision and built to last, this versatile set is perfect for home chefs and professionals alike, offering an unparalleled cutting experience for every occasion.`,
+    isAI: true,
+    explanation: "AI-generated. The language is generic marketing-speak with no concrete details — 'cutting-edge', 'timeless design', 'unparalleled experience' — phrases that sound polished but say very little.",
+    levels: [1, 2]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `ngl the new café down my street is kinda mid. waited like 15 min for a latte that tasted mostly like warm milk. might give it one more shot bc the pastries actually looked good tho`,
+    isAI: false,
+    explanation: "Human. Casual slang ('ngl', 'mid'), lowercase throughout, a concrete complaint (15-minute wait, watery latte) and a hedged verdict. AI copy rarely commits to being unimpressed this specifically.",
+    levels: [1, 2]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `In today's fast-paced world, staying productive is more important than ever. By leveraging the right tools and strategies, you can unlock your full potential and achieve your goals. Remember: success is a journey, not a destination.`,
+    isAI: true,
+    explanation: "AI-generated. Stacked clichés ('fast-paced world', 'unlock your full potential', 'journey not a destination') with zero specifics. This hollow motivational register is a very common LLM default.",
+    levels: [1, 2]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `Honestly the wedding was kind of a disaster? The DJ played the wrong first-dance song and my cousin cried in the bathroom for 20 minutes. But somehow it was still the best day and I wouldn't change any of it. Even the cake being an hour late.`,
+    isAI: false,
+    explanation: "Human. Contradictory but real emotion (a 'disaster' that was still 'the best day'), oddly specific mishaps, and a trailing afterthought ('Even the cake…'). Genuine memory tends to be lumpy like this.",
+    levels: [2, 3]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `The sunset painted the sky in hues of orange and pink, casting a warm glow over the tranquil landscape. Birds chirped melodiously as a gentle breeze whispered through the trees, creating a scene of perfect, serene beauty.`,
+    isAI: true,
+    explanation: "AI-generated. Every noun gets a tidy adjective ('tranquil landscape', 'gentle breeze', 'serene beauty') and nothing is specific or surprising. This over-polished postcard style is a strong tell.",
+    levels: [2, 3]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `Update on the leak: plumber came, said it was NOT the pipe like I thought, it was the seal on the toilet base the whole time. $180 later and my bathroom floor is finally dry. Anyway don't ignore a wobbly toilet, learn from my mistakes.`,
+    isAI: false,
+    explanation: "Human. A real-life problem with a plot twist, an exact price ($180), casual capitalization for emphasis ('NOT'), and hard-won advice. The lived specificity is hard to fake.",
+    levels: [2, 3]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `As an avid enthusiast of literature, I find that reading offers a multitude of benefits. It enhances vocabulary, improves focus, and broadens one's perspective on the world. Ultimately, cultivating a reading habit is a rewarding endeavor for anyone.`,
+    isAI: true,
+    explanation: "AI-generated. Stiff, list-like structure ('enhances… improves… broadens…'), formal filler ('a multitude of', 'rewarding endeavor'), and no personal voice despite claiming to be an 'avid enthusiast'.",
+    levels: [3, 4]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `my dog just figured out he can open the pantry door and i came home to an empty bag of rice everywhere. like the WHOLE bag. he looked so proud of himself i couldn't even be mad. rice in places rice should not be.`,
+    isAI: false,
+    explanation: "Human. Absurd specific chaos ('rice in places rice should not be'), emotional whiplash (can't be mad), and loose punctuation. AI rarely lands this kind of offhand comedic specificity.",
+    levels: [3, 4]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `Certainly! Here are some tips to improve your morning routine: 1) Wake up at a consistent time. 2) Hydrate immediately. 3) Avoid screens for the first hour. 4) Incorporate light exercise. By following these steps, you'll set yourself up for a productive day!`,
+    isAI: true,
+    explanation: "AI-generated. Opens with 'Certainly!' (a classic assistant tic), snaps into a numbered list, and closes with an upbeat promise. The format itself is the giveaway.",
+    levels: [1, 2]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `not to be dramatic but the airport lost my luggage AND the replacement they sent went to the wrong hotel. i've been in the same shirt for three days. the front desk guy felt so bad he gave me free breakfast so honestly a wash at this point`,
+    isAI: false,
+    explanation: "Human. Compounding real misfortune, self-aware humor ('not to be dramatic but'), and a small human kindness (free breakfast). The lived, escalating detail reads authentic.",
+    levels: [3, 4]
+  },
+  {
+    category: 'text',
+    tag: 'EXHIBIT — TEXT',
+    contentType: 'text',
+    content: `Embark on a culinary journey with our artisanal coffee blend. Sourced from the finest beans and roasted to perfection, each cup delivers a rich, harmonious flavor profile that awakens the senses and elevates your everyday ritual.`,
+    isAI: true,
+    explanation: "AI-generated. Buzzword soup ('culinary journey', 'roasted to perfection', 'elevates your everyday ritual') with no actual tasting notes, origin, or roaster. Polished but empty — classic generated marketing copy.",
+    levels: [2, 3]
+  },
+
+  /* =========================================================
+     IMAGE QUESTIONS  (using placeholder drawings for now —
+     swap in real photos when you have them)
+     ========================================================= */
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'hand6',
+    isAI: true,
+    explanation: "AI-generated. Count the fingers — six, with one oddly bent knuckle. Extra or fused digits are one of the most common tells in AI-generated hands.",
+    levels: [1, 2]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'camera',
+    isAI: false,
+    explanation: "Human-taken. A real photo (represented here) — consistent shadow direction, natural asymmetry, and a single believable light source, with no warped background objects.",
+    levels: [1, 2]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'earringsAsym',
+    isAI: true,
+    explanation: "AI-generated. Look at the jewelry — the two earrings don't match, one is a stud and the other a drop. AI often can't keep paired accessories symmetric across a face.",
+    levels: [2, 3]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'landscape',
+    isAI: false,
+    explanation: "Human-taken. A real landscape — natural horizon line, believable overlapping hills, and lighting consistent with the sun's position. No melting edges or repeated textures.",
+    levels: [1, 2]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'glassesMelt',
+    isAI: true,
+    explanation: "AI-generated. Follow the glasses frame — it dissolves into the temple on one side instead of forming a solid arm. Frames, straps, and thin structures often 'melt' in AI images.",
+    levels: [2, 3]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'building',
+    isAI: false,
+    explanation: "Human-taken. Architecture with consistent straight lines, evenly spaced windows, and correct perspective. AI frequently bends parallel lines or misaligns repeated window grids.",
+    levels: [2, 3]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'garbledSign',
+    isAI: true,
+    explanation: "AI-generated. Try to read the sign — the letters are almost-but-not-quite real shapes that spell nothing. Garbled text is one of the most reliable AI image tells.",
+    levels: [1, 2]
+  },
+  {
+    category: 'image',
+    tag: 'EXHIBIT — IMAGE',
+    contentType: 'svg',
+    content: 'foodPlate',
+    isAI: true,
+    explanation: "AI-generated. Check the cutlery — the fork has an extra prong and the utensils bend unnaturally. AI struggles with the rigid, countable structure of tableware.",
+    levels: [3, 4]
+  },
+
+  /* =========================================================
+     VIDEO QUESTIONS  (using placeholder drawings for now —
+     swap in real clips when you have them)
+     ========================================================= */
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoBad',
+    isAI: true,
+    explanation: "AI-generated. Watch the mouth against the audio track — the lip movement lags half a beat behind the words, and the blink rate barely changes for the whole clip.",
+    levels: [1, 2]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoGood',
+    isAI: false,
+    explanation: "Real footage. Lighting flickers naturally with camera movement, blinking is irregular, and audio and lips line up frame to frame.",
+    levels: [1, 2]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoHands',
+    isAI: true,
+    explanation: "AI-generated. Watch the hands as they move — fingers flicker and change count between frames. Hands in motion are where AI video breaks down most visibly.",
+    levels: [2, 3]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoInterview',
+    isAI: false,
+    explanation: "Real footage. Natural micro-expressions, irregular blinking, and stable facial features throughout. The subject's ears, teeth and hairline stay consistent frame to frame.",
+    levels: [2, 3]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoWarpBg',
+    isAI: true,
+    explanation: "AI-generated. Ignore the face and watch the background — objects behind the subject ripple and morph as the camera moves. Unstable backgrounds are a strong AI-video tell.",
+    levels: [3, 4]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoStreet',
+    isAI: false,
+    explanation: "Real footage. Handheld camera shake is irregular and physical, shadows track consistently, and passing objects keep stable shapes. AI rarely nails organic handheld motion.",
+    levels: [2, 3]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoBad',
+    isAI: true,
+    explanation: "AI-generated. The teeth shift subtly in count and shape when the subject speaks, and the jawline warps slightly on wider mouth movements. Watch the mouth interior closely.",
+    levels: [3, 4]
+  },
+  {
+    category: 'video',
+    tag: 'EXHIBIT — VIDEO',
+    contentType: 'svg',
+    content: 'videoInterview',
+    isAI: false,
+    explanation: "Real footage. Reflections in the subject's glasses move correctly with the light, and there's natural motion blur on quick head turns — details AI video usually gets wrong.",
+    levels: [3, 4]
+  }
+];
