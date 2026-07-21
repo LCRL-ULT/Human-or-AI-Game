@@ -227,3 +227,72 @@ footer.foot-nav{margin-top:24px; display:flex; justify-content:space-between;}
   .level-grid{grid-template-columns:1fr;}
   .final-score{font-size:38px;}
 }
+
+/* ============================================================
+   NEW FEATURES: case integrity (lives), confidence betting,
+   and shareable result grid.
+   These use the same tokens as the rest of the sheet.
+   ============================================================ */
+
+/* --- lives / case integrity in the HUD --- */
+.hud-lives{
+  font-family:'IBM Plex Mono',monospace;
+  color:var(--red);
+  letter-spacing:.12em;
+}
+
+/* --- confidence betting selector --- */
+.confidence-box{margin-top:18px;}
+.confidence-box > label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); display:block; margin-bottom:8px;
+}
+.confidence-row{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
+.conf-btn{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px; letter-spacing:.03em;
+  padding:10px 6px; cursor:pointer;
+  border:1px solid var(--line); border-radius:3px;
+  background:var(--card); color:var(--ink);
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  transition:border-color .12s ease, background .12s ease, transform .12s ease;
+}
+.conf-btn .conf-mult{color:var(--gold); font-weight:700; font-size:13px;}
+.conf-btn:hover{border-color:var(--gold);}
+.conf-btn.selected{
+  border-color:var(--gold);
+  background:rgba(184,145,46,.12);
+  transform:translateY(-1px);
+}
+
+/* --- shareable result grid on the score screen --- */
+.share-box{
+  margin:0 auto 24px; max-width:340px;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.share-grid{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:14px; line-height:1.5; text-align:center;
+  white-space:pre-wrap; word-break:break-word;
+  background:var(--card); color:var(--ink);
+  border:1px solid var(--line); border-radius:3px;
+  padding:14px 16px; margin:0; width:100%;
+}
+.share-copy{cursor:pointer;}
+.share-copied{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px; color:var(--teal); letter-spacing:.04em;
+  min-height:14px;
+}
+
+@media (max-width:420px){
+  .confidence-row{grid-template-columns:1fr;}
+}
+
+/* --- endless mode card on the level-select screen --- */
+.level-card.endless-card{
+  border-color:var(--red);
+  background:linear-gradient(180deg, rgba(178,58,46,.07), var(--card));
+}
+.level-card.endless-card .level-num{color:var(--red);}

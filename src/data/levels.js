@@ -3,7 +3,7 @@
 
    This file sets up the four cases and a few game settings.
    You can change the names, the timer, and how many questions
-   each round has — just edit the values below.
+   each round has - just edit the values below.
    ============================================================ */
 
 // The four cases shown on the "Choose Your Case" screen.
@@ -28,3 +28,15 @@ export const QUESTIONS_PER_ROUND = 6;
 // Which case shows the "write your reasoning" notes box before answering.
 // Right now that's case 4 (Detective Mode).
 export const DETECTIVE_LEVEL = 4;
+
+// How many wrong calls the player can make before the case is "blown"
+// (the run ends early). This is the case-integrity / lives system.
+// Set higher for a more forgiving game.
+export const MAX_LIVES = 3;
+
+// Which question pool the Endless mode ("Endless Files") draws from.
+// It uses the same pooling rules as the numbered cases. Pointing it at
+// case 2 ("Mixed Signals") gives a balanced mix of real and fake.
+// The pool reshuffles and refills forever, so the run only ends when
+// the player runs out of integrity.
+export const ENDLESS_LEVEL = 2;
