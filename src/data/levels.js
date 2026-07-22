@@ -1,42 +1,33 @@
 /* ============================================================
    LEVELS (the different cases players can pick)
 
-   This file sets up the four cases and a few game settings.
-   You can change the names, the timer, and how many questions
-   each round has - just edit the values below.
+   These map onto the dataset's three difficulty tiers:
+   easy -> Case 1, medium -> Case 2, hard -> Case 3.
+   Case 4 (Detective Mode) draws from ALL items.
    ============================================================ */
 
-// The four cases shown on the "Choose Your Case" screen.
-// id   = the case number (also used to pick which questions show up)
-// name = the title players see
-// desc = the little description under the title
 export const LEVELS = [
-  { id: 1, name: 'Easy Lead',     desc: 'Obvious tells. Warm-up round.' },
-  { id: 2, name: 'Mixed Signals', desc: 'A blend of real and fake evidence.' },
-  { id: 3, name: 'Cold Case',     desc: 'Very convincing fakes. Look closely.' },
-  { id: 4, name: 'Detective Mode', desc: 'Write your reasoning before the reveal.' }
+  { id: 1, name: 'Easy Lead',      desc: 'Obvious tells. Warm-up round.' },
+  { id: 2, name: 'Mixed Signals',  desc: 'Convincing fakes. Look closer.' },
+  { id: 3, name: 'Cold Case',      desc: 'Expert forgeries. Trust nothing.' },
+  { id: 4, name: 'Detective Mode', desc: 'All difficulties. Write your reasoning first.' }
 ];
 
 // How many seconds the player gets to answer each question.
-export const QUESTION_TIME = 20;
+// Videos need time to watch, so this is generous.
+export const QUESTION_TIME = 45;
 
 // How many questions to show in one round.
-// The game mixes up the available questions and picks this many.
+// The dataset guidelines specify 6 questions per round.
 // Tip: set this to 0 to use ALL the questions in a round.
 export const QUESTIONS_PER_ROUND = 6;
 
 // Which case shows the "write your reasoning" notes box before answering.
-// Right now that's case 4 (Detective Mode).
 export const DETECTIVE_LEVEL = 4;
 
-// How many wrong calls the player can make before the case is "blown"
-// (the run ends early). This is the case-integrity / lives system.
-// Set higher for a more forgiving game.
+// How many wrong calls before the case is "blown" (run ends early).
 export const MAX_LIVES = 3;
 
-// Which question pool the Endless mode ("Endless Files") draws from.
-// It uses the same pooling rules as the numbered cases. Pointing it at
-// case 2 ("Mixed Signals") gives a balanced mix of real and fake.
-// The pool reshuffles and refills forever, so the run only ends when
-// the player runs out of integrity.
-export const ENDLESS_LEVEL = 2;
+// Which question pool Endless mode draws from. Level 4 = every item,
+// so an endless run mixes easy, medium and hard evidence.
+export const ENDLESS_LEVEL = 4;

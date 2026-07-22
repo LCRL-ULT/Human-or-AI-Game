@@ -328,7 +328,9 @@ export const Game = {
       heading = `Not quite (-${lifeLost} integrity)`;
     }
     $('reveal-heading').textContent = heading;
-    $('reveal-explanation').textContent = q.explanation;
+    // Explanations are multi-line (paragraph + bulleted "what to look for"),
+    // so escape the text but keep the line breaks readable.
+    $('reveal-explanation').innerHTML = escapeHtml(q.explanation).replace(/\n/g, '<br>');
     $('reveal-panel').classList.add('show');
 
     $('btn-next').style.display = 'inline-block';
